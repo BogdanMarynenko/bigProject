@@ -61,23 +61,25 @@ stopSlider() {
 }
 
 init() {
-  this.container.style.cssText = `
-  display: flex;
-  flex-wrap: wrap;
-  overflow: hidden;
-  align-items: flex-start;
-  `;
-
-  this.bindTrigger();
-  this.decorizeSlides();
+  try {
+    this.container.style.cssText = `
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    align-items: flex-start;
+    `;
   
- 
-  if (this.autoplay) {
-    this.stopSlider();
-    this.slides[0].parentNode.addEventListener('mouseleave', () => this.stopSlider());
-    this.next.addEventListener('mouseleave', () =>  this.stopSlider());
-    this.prev.addEventListener('mouseleave', () => this.stopSlider());
- 
-  }
+    this.bindTrigger();
+    this.decorizeSlides();
+    
+   
+    if (this.autoplay) {
+      this.stopSlider();
+      this.slides[0].parentNode.addEventListener('mouseleave', () => this.stopSlider());
+      this.next.addEventListener('mouseleave', () =>  this.stopSlider());
+      this.prev.addEventListener('mouseleave', () => this.stopSlider());
+   
+    }
+  } catch(e){}
 }
 }
